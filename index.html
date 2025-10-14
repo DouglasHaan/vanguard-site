@@ -1,0 +1,184 @@
+<style>
+:root {
+  --bg:#ffffff;
+  --ink-900:#050b1f;
+  --ink-700:#162447;
+  --ink-500:#243b6b;
+  --accent:#001f54;
+  --accent-light:#004aad;
+  --line:#8fa6d0;
+  --surface:#ffffff;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.12);
+  --ring:rgba(0,74,173,.35);
+}
+
+/* Typography Enhancements */
+nav a.navlink, .btn, label, input, textarea, select, .tag, .pill {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-weight: 600;
+  text-decoration:none;
+}
+
+/* Headings with IBM Plex Serif */
+h1, h2, h3 {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  letter-spacing: 0.3px;
+}
+
+/* Navigation and header styling */
+header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--surface);
+  border-bottom:2px solid var(--line);
+  box-shadow:0 3px 8px rgba(0,0,0,.08);
+}
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 0;
+}
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  margin:0;
+  padding:0;
+}
+nav a.navlink {
+  color:var(--ink-900);
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:600;
+  transition:background .2s;
+  text-decoration:none;
+}
+nav a.navlink:hover {
+  background:#eaf1ff;
+}
+
+/* CTA buttons top right */
+.header-cta {
+  display:flex;
+  gap:14px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  box-shadow:var(--shadow);
+  transition:.15s;
+  text-decoration:none;
+  border:none;
+}
+.btn:hover {
+  background:var(--accent-light);
+}
+.btn.outline {
+  background:#ffffff;
+  color:var(--accent);
+  border:2px solid var(--accent);
+  text-decoration:none;
+}
+
+/* Section heading tweaks */
+.section-head h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--ink-900);
+  position: relative;
+}
+.section-head h2::after {
+  display: none;
+}
+
+/* Hero heading size increase */
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 24px;
+  color: var(--ink-900);
+}
+
+/* Section spacing for more breathing room */
+section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* Logo styling - Shield & text */
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo-shield {
+  width:50px;
+  height:50px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-light));
+  -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2l8 4v6c0 5.25-3.5 10-8 10s-8-4.75-8-10V6l8-4z"/></svg>') no-repeat center/contain;
+  mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2l8 4v6c0 5.25-3.5 10-8 10s-8-4.75-8-10V6l8-4z"/></svg>') no-repeat center/contain;
+}
+.logo-text {
+  font-family:'IBM Plex Serif', Georgia, serif;
+  font-weight:800;
+  font-size:1.4rem;
+  color:var(--ink-900);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.logo-sub {
+  display:block;
+  font-family:'IBM Plex Sans', system-ui, sans-serif;
+  font-size:0.85rem;
+  letter-spacing:2px;
+  color:var(--ink-700);
+  text-transform:uppercase;
+  margin-top:-4px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+
+/* Injected: Ensure header logo image displays nicely */
+.logo-link img{height:40px;width:auto;vertical-align:middle}
+@media (min-width:768px){.logo-link img{height:46px}}
+
+</style>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-shield"></div>
+      <div>
+        <div class="logo-text">Vanguard</div>
+        <div class="logo-sub">Business Brokers</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="navlink" href="#services">Services</a></li>
+        <li><a class="navlink" href="#process">Process</a></li>
+        <li><a class="navlink" href="#industries">Industries</a></li>
+        <li><a class="navlink" href="#about">About</a></li>
+        <li><a class="navlink" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a class="btn outline" href="#contact">Get a Valuation</a>
+      <a class="btn" href="#contact">Talk to a Broker</a>
+    </div>
+  </div>
+</header>
