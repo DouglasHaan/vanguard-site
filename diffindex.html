@@ -8,364 +8,161 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #f9fbff;                 /* slightly lighter background */
-      --ink-900: #0d1f44;            /* deeper dark text */
-      --ink-700: #32456f;            /* stronger secondary text */
-      --ink-500: #5e6a8a;            /* muted but legible */
-      --line: #d1d6e0;               /* lighter border */
-      --accent: #1b3e8a;             /* main brand accent */
-      --accent-light: #3174ff;       /* brighter accent for highlights */
-      --surface: #ffffff;
-      --surface-alt: #f2f6fc;
-      --radius: 12px;
-      --shadow: 0 4px 10px rgba(0,0,0,0.04);
-      --shadow-strong: 0 6px 20px rgba(27,62,138,0.15);
-      --glow: 0 0 8px rgba(49,116,255,0.30);
-      --ring: rgba(49,116,255,0.2);
-    }
+    body { font-family: 'IBM Plex Sans', sans-serif; margin: 0; color: #0a1f44; background: #ffffff; }
+    header { background: #0a1f44; color: white; padding: 20px 0; }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 600; font-size: 1.25rem; }
+    .brand span { color: #12f2c9; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .navlink { color: white; text-decoration: none; font-weight: 500; }
+    .btn { background: #c0c0c0; color: #0a1f44; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .btn.outline { background: transparent; border: 2px solid #c0c0c0; color: #c0c0c0; }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    .hero { display: grid; align-items: center; justify-content: center; text-align: center; padding: 160px 20px; background: #ffffff; color: #0a1f44; }
+    .hero h1 { font-size: 3rem; margin-bottom: 40px; line-height: 1.3; }
+    .hero .lede { font-size: 1.2rem; color: #475569; max-width: 700px; margin: 0 auto 40px; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'IBM Plex Sans', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink-900);
-      line-height: 1.6;
-    }
+    section { padding: 100px 0; }
+    .section-head { text-align: center; margin-bottom: 50px; }
+    .muted { color: #475569; font-size: 0.9rem; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    a:hover,
-    a:focus {
-      color: var(--accent-light);
-    }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .card { background: white; border: 2px solid #c0c0c0; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .badge { background: #c0c0c0; color: #0a1f44; font-weight: 700; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .tag { background: #c0c0c0; color: #0a1f44; padding: 10px 15px; border-radius: 6px; font-weight: 500; text-align: center; }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--surface);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
+    #process .card-grid { grid-template-columns: repeat(4, 1fr); align-items: stretch; text-align: center; }
+    #process .card { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-    }
+    footer { background: #0a1f44; color: white; padding: 40px 0; }
+    .footgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    a { color: inherit; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--ink-900);
-    }
-    .brand span {
-      font-size: 1.25rem;
-      color: var(--accent);
-    }
-
-    nav ul {
-      list-style: none;
-      display: none;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-    nav li {
-      margin: 0;
-    }
-    nav a.navlink {
-      color: var(--ink-900);
-      padding: 10px 14px;
-      border-radius: 8px;
-      opacity: 0.92;
-      transition: background .2s, opacity .2s;
-    }
-    nav a.navlink:hover,
-    nav a.navlink:focus {
-      background: rgba(49,116,255,0.10);
-      opacity: 1;
-    }
-
-    .cta {
-      display: none;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: var(--shadow);
-      transition: background .25s, box-shadow .25s, transform .25s;
-    }
-    .btn:hover,
-    .btn:focus {
-      background: var(--accent-light);
-      box-shadow: var(--shadow-strong), var(--glow);
-      transform: translateY(-2px);
-    }
-    .btn.outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-
-    .hero {
-      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%),
-                  url('https://www.transparenttextures.com/patterns/cubes.png');
-      background-size: auto;
-      padding: 100px 0 60px;
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--ink-500);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 14px;
-      background: var(--surface);
-    }
-    .eyebrow .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      box-shadow: 0 0 0 4px rgba(49,116,255,0.12);
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      line-height: 1.2;
-      margin: 20px 0 12px;
-      color: var(--ink-900);
-    }
-    .lede {
-      color: var(--ink-700);
-      font-size: 1.15rem;
-      max-width: 720px;
-      margin-bottom: 24px;
-    }
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--line);
-      background: var(--surface-alt);
-      background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
-    }
-    section:nth-of-type(even) {
-      background: var(--surface);
-      background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
-    }
-
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-    .section-head h2 {
-      font-size: 2rem;
-      margin: 0;
-      color: var(--ink-900);
-    }
-    .muted {
-      color: var(--ink-500);
-      font-size: 0.95rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .card:hover,
-    .card:focus-within {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-strong), var(--glow);
-      border-color: var(--accent-light);
-    }
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.25rem;
-      color: var(--ink-900);
-    }
-    .card p {
-      margin: 0;
-      color: var(--ink-700);
-      font-size: 1rem;
-    }
-
-    .step {
-      display: flex;
-      gap: 16px;
-      border: 2px dashed var(--accent-light);
-      border-radius: 12px;
-      padding: 20px;
-      background: #eef4fd;
-      box-shadow: var(--shadow);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .step:hover,
-    .step:focus-within {
-      box-shadow: var(--shadow-strong), var(--glow);
-      transform: translateY(-2px);
-    }
-    .badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: var(--accent-light);
-      color: #fff;
-      font-weight: 700;
-      display: grid;
-      place-items: center;
-      font-size: 1rem;
-    }
-
-    .tag {
-      border: 1px solid var(--accent-light);
-      border-radius: 999px;
-      padding: 10px 14px;
-      background: var(--surface);
-      font-weight: 500;
-      color: var(--accent);
-      font-size: 0.95rem;
-    }
-
-    .cta-block {
-      display: grid;
-      gap: 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      transition: transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .cta-block:hover,
-    .cta-block:focus-within {
-      box-shadow: var(--shadow-strong), var(--glow);
-      transform: translateY(-2px);
-      border-color: var(--accent-light);
-    }
-
-    form {
-      display: grid;
-      gap: 16px;
-    }
-    label {
-      font-size: 0.9rem;
-      color: var(--ink-500);
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: #fafbfe;
-      color: var(--ink-900);
-      font-size: 1rem;
-    }
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      box-shadow: 0 0 0 4px var(--ring);
-      border-color: var(--accent-light);
-    }
-
-    footer {
-      padding: 48px 0;
-      color: var(--ink-500);
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      background-image: url('https://www.transparenttextures.com/patterns/light-wool.png');
-    }
-    .footgrid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      nav ul {
-        display: flex;
-      }
-      .cta {
-        display: flex;
-      }
-      h1 {
-        font-size: 3.4rem;
-      }
-      .hero-grid {
-        grid-template-columns: 1.2fr .8fr;
-        align-items: center;
-      }
-      .card-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
-      .steps {
-        grid-template-columns: repeat(4,1fr);
-      }
-      .footgrid {
-        grid-template-columns: 2fr 1fr 1fr;
-      }
-    }
+    input, textarea, button { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; margin-bottom: 15px; font-family: inherit; }
+    button.btn { border: none; cursor: pointer; }
   </style>
 </head>
 <body>
-  <!-- Body content remains unchanged -->
+  <header>
+    <div class="container nav">
+      <div class="brand"><span>Vanguard</span> Business Brokers</div>
+      <nav>
+        <ul>
+          <li><a class="navlink" href="#services">Services</a></li>
+          <li><a class="navlink" href="#process">Process</a></li>
+          <li><a class="navlink" href="#industries">Industries</a></li>
+          <li><a class="navlink" href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="btn outline" href="#contact">Talk to a Broker</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Expert M&A Advisory</div>
+        <h1>Buy, grow, or sell your business with confidence</h1>
+        <p class="lede">Vanguard helps business owners and acquirers across the U.S. with advisory services, strategy, and financial planning — at any stage of the business journey.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#valuation">Get a Valuation</a>
+          <a class="btn outline" href="#contact">Talk to a Broker</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Services</h2>
+        <span class="muted">Advisory from startup to exit</span>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3>Business Valuation</h3><p>Get an accurate, defensible valuation whether you're buying, selling, or raising capital.</p></div>
+        <div class="card"><h3>Sell-Side Advisory</h3><p>We'll prepare your business for sale, identify qualified buyers, and help close the deal.</p></div>
+        <div class="card"><h3>Buy-Side Advisory</h3><p>Looking to acquire? We help with target search, valuation, due diligence, and negotiation.</p></div>
+        <div class="card"><h3>Fractional CFO</h3><p>Access strategic financial leadership on a part-time basis — FP&A, modeling, and reporting.</p></div>
+        <div class="card"><h3>Strategy & Growth</h3><p>From pricing strategy to market expansion, we help you scale profitably and sustainably.</p></div>
+        <div class="card"><h3>Exit Planning</h3><p>Maximize your company’s value ahead of a planned transition or future exit.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Process</h2>
+        <span class="muted">How we deliver value</span>
+      </div>
+      <div class="card-grid">
+        <div class="card"><div class="badge">1</div><strong>Discovery</strong><br>We learn your goals, challenges, and business model.</div>
+        <div class="card"><div class="badge">2</div><strong>Analysis</strong><br>We dive into your financials, market, and operations.</div>
+        <div class="card"><div class="badge">3</div><strong>Strategy</strong><br>We map a custom action plan to meet your objectives.</div>
+        <div class="card"><div class="badge">4</div><strong>Execution</strong><br>We deliver services or work alongside you to implement.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Industries Served</h2>
+        <span class="muted">Our experience spans dozens of verticals</span>
+      </div>
+      <div class="card-grid">
+        <div class="tag">Professional Services</div>
+        <div class="tag">Software & SaaS</div>
+        <div class="tag">Manufacturing</div>
+        <div class="tag">Logistics & Transport</div>
+        <div class="tag">Retail & E-Commerce</div>
+        <div class="tag">Construction</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Vanguard</h2>
+        <span class="muted">Based in Georgia, serving nationwide</span>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3>Who We Are</h3><p>Founded by experienced operators and financial advisors, we combine strategic insight with hands-on execution.</p></div>
+        <div class="card"><h3>Our Approach</h3><p>We tailor our process to every client, blending data and experience to drive measurable outcomes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <span class="muted">We respond within 24 hours</span>
+      </div>
+      <form>
+        <label for="name">Your Name</label>
+        <input id="name" name="name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footgrid">
+      <div><strong>Vanguard Business Brokers</strong><br>Alpharetta, GA<br>Serving U.S.-based clients nationwide</div>
+      <div><strong>Contact</strong><br><a href="mailto:info@vanguardbrokers.com">info@vanguardbrokers.com</a><br><a href="#contact">Contact Form</a></div>
+      <div><strong>Links</strong><br><a href="#services">Services</a><br><a href="#about">About</a><br><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
 </body>
 </html>
-
-
-  
