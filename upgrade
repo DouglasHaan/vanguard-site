@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vanguard Business Brokers — Expert Advisory for Growing Companies</title>
+  <meta name="description" content="Vanguard Business Brokers helps owners buy, grow, and sell small to mid-sized businesses. Fractional leadership, FP&A, valuation, buy-side and sell-side advisory. Headquarters in Alpharetta, GA. Serving clients nationwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* FULL CSS from the improved version provided earlier */
+    /* ... (you can paste the entire improved CSS block here from earlier) ... */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span>Vanguard</span> Business Brokers</div>
+      <nav>
+        <ul>
+          <li><a class="navlink" href="#services">Services</a></li>
+          <li><a class="navlink" href="#process">Process</a></li>
+          <li><a class="navlink" href="#industries">Industries</a></li>
+          <li><a class="navlink" href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="btn outline" href="#contact">Talk to a Broker</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Expert M&A Advisory</div>
+        <h1>Buy, grow, or sell your business with confidence</h1>
+        <p class="lede">Vanguard helps business owners and acquirers across the U.S. with advisory services, strategy, and financial planning — at any stage of the business journey.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#valuation">Get a Valuation</a>
+          <a class="btn outline" href="#contact">Talk to a Broker</a>
+        </div>
+      </div>
+      <div>
+        <!-- You can place an image or graphic here -->
+        <img src="https://douglashaan.github.io/vanguard-site/images/finance-hero.svg" alt="Financial strategy" style="max-width:100%">
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Services</h2>
+        <span class="muted">Advisory from startup to exit</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Business Valuation</h3>
+          <p>Get an accurate, defensible valuation whether you're buying, selling, or raising capital.</p>
+        </div>
+        <div class="card">
+          <h3>Sell-Side Advisory</h3>
+          <p>We'll prepare your business for sale, identify qualified buyers, and help close the deal.</p>
+        </div>
+        <div class="card">
+          <h3>Buy-Side Advisory</h3>
+          <p>Looking to acquire? We help with target search, valuation, due diligence, and negotiation.</p>
+        </div>
+        <div class="card">
+          <h3>Fractional CFO</h3>
+          <p>Access strategic financial leadership on a part-time basis — FP&A, modeling, and reporting.</p>
+        </div>
+        <div class="card">
+          <h3>Strategy & Growth</h3>
+          <p>From pricing strategy to market expansion, we help you scale profitably and sustainably.</p>
+        </div>
+        <div class="card">
+          <h3>Exit Planning</h3>
+          <p>Maximize your company’s value ahead of a planned transition or future exit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Process</h2>
+        <span class="muted">How we deliver value</span>
+      </div>
+      <div class="steps card-grid">
+        <div class="step">
+          <div class="badge">1</div>
+          <div>
+            <strong>Discovery</strong><br>We learn your goals, challenges, and business model.
+          </div>
+        </div>
+        <div class="step">
+          <div class="badge">2</div>
+          <div>
+            <strong>Analysis</strong><br>We dive into your financials, market, and operations.
+          </div>
+        </div>
+        <div class="step">
+          <div class="badge">3</div>
+          <div>
+            <strong>Strategy</strong><br>We map a custom action plan to meet your business objectives.
+          </div>
+        </div>
+        <div class="step">
+          <div class="badge">4</div>
+          <div>
+            <strong>Execution</strong><br>We deliver services or work alongside you to implement.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Industries Served</h2>
+        <span class="muted">Our experience spans dozens of verticals</span>
+      </div>
+      <div class="card-grid">
+        <div class="tag">Professional Services</div>
+        <div class="tag">Software & SaaS</div>
+        <div class="tag">Manufacturing</div>
+        <div class="tag">Logistics & Transport</div>
+        <div class="tag">Retail & E-Commerce</div>
+        <div class="tag">Construction</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Vanguard</h2>
+        <span class="muted">Based in Georgia, serving nationwide</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Who We Are</h3>
+          <p>Founded by experienced operators and financial advisors, we combine strategic insight with hands-on execution.</p>
+        </div>
+        <div class="card">
+          <h3>Our Approach</h3>
+          <p>We tailor our process to every client, blending data and experience to drive measurable outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <span class="muted">We respond within 24 hours</span>
+      </div>
+      <div class="cta-block">
+        <form>
+          <label for="name">Your Name</label>
+          <input id="name" name="name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footgrid">
+      <div>
+        <strong>Vanguard Business Brokers</strong><br>
+        Alpharetta, GA<br>
+        Serving U.S.-based clients nationwide
+      </div>
+      <div>
+        <strong>Contact</strong><br>
+        <a href="mailto:info@vanguardbrokers.com">info@vanguardbrokers.com</a><br>
+        <a href="#contact">Contact Form</a>
+      </div>
+      <div>
+        <strong>Links</strong><br>
+        <a href="#services">Services</a><br>
+        <a href="#about">About</a><br>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
