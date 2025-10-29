@@ -9,245 +9,160 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f8f9fc;
-      --ink-900:#0b1b3b;
-      --ink-700:#2d3f69;
-      --ink-500:#6c7a99;
-      --line:#d4d7e2;
-      --accent:#1e3a8a;
-      --accent-light:#3b82f6;
-      --surface:#ffffff;
-      --radius:14px;
-      --shadow:0 8px 20px rgba(0,0,0,.05);
-      --ring:rgba(59,130,246,.3);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink-900);line-height:1.6}
-    a{color:var(--accent-light);text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 2px 4px rgba(0,0,0,.05)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand .logo{width:40px;height:40px;border-radius:6px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABq0lEQVR4nO3bvU7DUBRA0S9ClHD//0vo1MYjEeo0/ahOZvaZn8KiRRGSZbmVIAAAAAAAAAAAAA4NdUu7wvnl9/vm//bb/84B2YtFQIRlphXB2TuqZfsrKo7SnXZfXTFCq9btgl9QMuBaGbzmJQ1duTJWJ44VU1ObEpWrkgkeLOlA2q8VjSuTvLqou2xb9my+CRpibmEekYoUYoyrSz6gtEmr9h0ycpQaIXflh0xYoUKFCgQIECBQoUKFCgQIECBQoUKFCgQIECBQklG5ZV6ykWxSpXov+bC+5xRUSV1slpyPyVZ3xqT31g5L1RxznGUYrxpztScuJz1rhFCV+U+RbnaxTZQdU0T+Vy7pDpqhpjytc/F0L4s91dX8OnVEMAAAAAAACAzvSv4Z2MWgZNhCQAAAABJRU5ErkJggg==') center/contain no-repeat;content:"";display:block}
-    .brand span{font-size:1.05rem}
-    nav ul{list-style:none;display:none;gap:18px;margin:0;padding:0}
-    nav a.navlink{color:var(--ink-900);opacity:.85;padding:10px 12px;border-radius:10px}
-    nav a.navlink:hover{background:rgba(59,130,246,.1)}
-    .cta{display:none}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;box-shadow:var(--shadow);transition:.2s}
-    .btn:hover{background:var(--accent-light)}
-    .btn.outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-    .hero{background:linear-gradient(180deg,var(--surface),#eef2fa);padding:84px 0 56px;border-bottom:1px solid var(--line)}
-    .hero-grid{display:grid;grid-template-columns:1fr;gap:24px}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.86rem;color:var(--ink-500);border:1px solid var(--line);border-radius:999px;padding:8px 12px}
-    .eyebrow .dot{width:8px;height:8px;border-radius:999px;background:var(--accent-light);box-shadow:0 0 0 4px rgba(59,130,246,.15)}
-    h1{font-size:2rem;line-height:1.2;margin:14px 0 10px}
-    .lede{color:var(--ink-700);font-size:1.05rem;max-width:720px}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    section{padding:72px 0;border-bottom:1px solid var(--line)}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:28px}
-    .section-head h2{font-size:1.6rem;margin:0}
-    .muted{color:var(--ink-500)}
-    .card-grid{display:grid;grid-template-columns:1fr;gap:16px}
-    .card{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 6px;font-size:1.08rem;color:var(--ink-900)}
-    .card p{margin:0;color:var(--ink-700)}
-    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent-light);border-radius:999px;padding:8px 12px;margin-right:8px;margin-top:8px;color:var(--accent)}
-    .icon{width:22px;height:22px;border-radius:8px;background:var(--accent);color:#fff;display:inline-grid;place-items:center;font-weight:900}
-    .steps{display:grid;grid-template-columns:1fr;gap:16px}
-    .step{display:flex;gap:14px;border:1px dashed var(--accent-light);border-radius:12px;padding:16px;background:#f0f4fb}
-    .badge{width:34px;height:34px;border-radius:8px;background:var(--accent-light);color:#fff;font-weight:700;display:grid;place-items:center}
-    .tags{display:flex;flex-wrap:wrap;gap:10px}
-    .tag{border:1px solid var(--line);border-radius:999px;padding:10px 12px;background:#fff}
-    .cta-block{display:grid;gap:12px;border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface);box-shadow:var(--shadow)}
-    form{display:grid;gap:12px}
-    label{font-size:.9rem;color:var(--ink-500)}
-    input, textarea, select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#f8f9fc;color:var(--ink-900)}
-    input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
-    footer{padding:40px 0;color:var(--ink-500)}
-    .footgrid{display:grid;grid-template-columns:1fr;gap:16px}
-    @media (min-width: 768px){
-      nav ul{display:flex}
-      .cta{display:flex}
-      h1{font-size:2.6rem}
-      .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
-      .card-grid{grid-template-columns:repeat(3,1fr)}
-      .steps{grid-template-columns:repeat(4,1fr)}
-      .footgrid{grid-template-columns:2fr 1fr 1fr}
-    }
+    body { font-family: 'IBM Plex Sans', sans-serif; margin: 0; color: #0a1f44; background: #ffffff; }
+    header { background: #0a1f44; color: white; padding: 20px 0; }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 600; font-size: 1.25rem; }
+    .brand span { color: #12f2c9; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .navlink { color: white; text-decoration: none; font-weight: 500; }
+    .btn { background: #c0c0c0; color: #0a1f44; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .btn.outline { background: transparent; border: 2px solid #c0c0c0; color: #c0c0c0; }
+
+    .hero { display: grid; align-items: center; justify-content: center; text-align: center; padding: 160px 20px; background: #ffffff; color: #0a1f44; }
+    .hero h1 { font-size: 3rem; margin-bottom: 40px; line-height: 1.3; }
+    .hero .lede { font-size: 1.2rem; color: #475569; max-width: 700px; margin: 0 auto 40px; }
+
+    section { padding: 100px 0; }
+    .section-head { text-align: center; margin-bottom: 50px; }
+    .muted { color: #475569; font-size: 0.9rem; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .card { background: white; border: 2px solid #c0c0c0; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+    .badge { background: #c0c0c0; color: #0a1f44; font-weight: 700; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .tag { background: #c0c0c0; color: #0a1f44; padding: 10px 15px; border-radius: 6px; font-weight: 500; text-align: center; }
+
+    #process .card-grid { grid-template-columns: repeat(4, 1fr); align-items: stretch; text-align: center; }
+    #process .card { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+    footer { background: #0a1f44; color: white; padding: 40px 0; }
+    .footgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    a { color: inherit; }
+
+    input, textarea, button { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; margin-bottom: 15px; font-family: inherit; }
+    button.btn { border: none; cursor: pointer; }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <a href="#" class="logo-link" style="display:inline-flex;align-items:center;margin-right:12px">
-          <img src="assets/logo.png" alt="Vanguard Business Brokers Logo" style="height:40px;width:auto;display:block"/>
-        </a>
-        <span>Vanguard Business Brokers</span>
-      </div>
+      <div class="brand"><span>Vanguard</span> Business Brokers</div>
       <nav>
         <ul>
           <li><a class="navlink" href="#services">Services</a></li>
           <li><a class="navlink" href="#process">Process</a></li>
           <li><a class="navlink" href="#industries">Industries</a></li>
           <li><a class="navlink" href="#about">About</a></li>
-          <li><a class="navlink" href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="cta">
-        <a class="btn outline" href="#contact">Get a Valuation</a>
-        <a class="btn" href="#contact">Talk to a Broker</a>
+        <a class="btn outline" href="#contact">Talk to a Broker</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Expert Advisory for Growing Companies</span>
-          <h1>Buy, Grow, and Sell with Confidence.</h1>
-          <p class="lede">Strategic brokerage and fractional leadership for small to mid-sized businesses. We combine CFO-level insight with proven deal execution to maximize your outcome.</p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn">Get Started</a>
-            <a href="#services" class="btn outline">Our Services</a>
-          </div>
-        </div>
-        <div>
-          <div class="cta-block">
-            <strong>Free Confidential Valuation</strong>
-            <p class="muted">Receive a data-backed estimate and exit-readiness score.</p>
-            <a href="#contact" class="btn">Request Valuation</a>
-          </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Expert M&A Advisory</div>
+        <h1>Buy, grow, or sell your business with confidence</h1>
+        <p class="lede">Vanguard helps business owners and acquirers across the U.S. with advisory services, strategy, and financial planning — at any stage of the business journey.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#valuation">Get a Valuation</a>
+          <a class="btn outline" href="#contact">Talk to a Broker</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Services -->
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>Services</h2>
-          <p class="muted">End-to-end advisory, tailored to your goals.</p>
-        </div>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Sell-Side Advisory</h3>
-            <p>Go-to-market strategy, confidential buyer outreach, negotiation, and close.</p>
-          </div>
-          <div class="card">
-            <h3>Buy-Side Representation</h3>
-            <p>Target sourcing, diligence support, valuation, and deal structuring.</p>
-          </div>
-          <div class="card">
-            <h3>Fractional CFO / CEO</h3>
-            <p>Financial planning, KPIs, cash flow, pricing, org design, and board prep.</p>
-          </div>
-        </div>
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Services</h2>
+        <span class="muted">Advisory from startup to exit</span>
       </div>
-    </section>
+      <div class="card-grid">
+        <div class="card"><h3>Business Valuation</h3><p>Get an accurate, defensible valuation whether you're buying, selling, or raising capital.</p></div>
+        <div class="card"><h3>Sell-Side Advisory</h3><p>We'll prepare your business for sale, identify qualified buyers, and help close the deal.</p></div>
+        <div class="card"><h3>Buy-Side Advisory</h3><p>Looking to acquire? We help with target search, valuation, due diligence, and negotiation.</p></div>
+        <div class="card"><h3>Fractional CFO</h3><p>Access strategic financial leadership on a part-time basis — FP&A, modeling, and reporting.</p></div>
+        <div class="card"><h3>Strategy & Growth</h3><p>From pricing strategy to market expansion, we help you scale profitably and sustainably.</p></div>
+        <div class="card"><h3>Exit Planning</h3><p>Maximize your company’s value ahead of a planned transition or future exit.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Process -->
-    <section id="process">
-      <div class="container">
-        <div class="section-head">
-          <h2>Our Process</h2>
-          <p class="muted">Clear steps. Transparent outcomes.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><div class="badge">1</div><div><strong>Discover</strong><br><span class="muted">Confidential consult and goal setting.</span></div></div>
-          <div class="step"><div class="badge">2</div><div><strong>Prepare</strong><br><span class="muted">Financials, positioning, materials.</span></div></div>
-          <div class="step"><div class="badge">3</div><div><strong>Market</strong><br><span class="muted">Qualified outreach, screening, NDAs.</span></div></div>
-          <div class="step"><div class="badge">4</div><div><strong>Close</strong><br><span class="muted">Negotiation, diligence, and funding.</span></div></div>
-        </div>
+  <section id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Process</h2>
+        <span class="muted">How we deliver value</span>
       </div>
-    </section>
+      <div class="card-grid">
+        <div class="card"><div class="badge">1</div><strong>Discovery</strong><br>We learn your goals, challenges, and business model.</div>
+        <div class="card"><div class="badge">2</div><strong>Analysis</strong><br>We dive into your financials, market, and operations.</div>
+        <div class="card"><div class="badge">3</div><strong>Strategy</strong><br>We map a custom action plan to meet your objectives.</div>
+        <div class="card"><div class="badge">4</div><strong>Execution</strong><br>We deliver services or work alongside you to implement.</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Industries -->
-    <section id="industries">
-      <div class="container">
-        <div class="section-head">
-          <h2>Industries</h2>
-          <p class="muted">We partner with owners across sectors.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Business Services</span>
-          <span class="tag">Home Services</span>
-          <span class="tag">Light Manufacturing</span>
-          <span class="tag">E‑commerce</span>
-          <span class="tag">Fitness & Wellness</span>
-          <span class="tag">Healthcare Support</span>
-        </div>
+  <section id="industries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Industries Served</h2>
+        <span class="muted">Our experience spans dozens of verticals</span>
       </div>
-    </section>
+      <div class="card-grid">
+        <div class="tag">Professional Services</div>
+        <div class="tag">Software & SaaS</div>
+        <div class="tag">Manufacturing</div>
+        <div class="tag">Logistics & Transport</div>
+        <div class="tag">Retail & E-Commerce</div>
+        <div class="tag">Construction</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <h2>About Vanguard</h2>
-          <p class="muted">Headquartered in Alpharetta, GA — serving clients nationwide.</p>
-        </div>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Experienced Operators</h3>
-            <p>Team of former CEOs, CFOs, and owners who have built, scaled, and exited companies.</p>
-          </div>
-          <div class="card">
-            <h3>Data‑Driven</h3>
-            <p>Valuations, comps, and KPIs that inform smart decisions at every stage.</p>
-          </div>
-          <div class="card">
-            <h3>White‑Glove Service</h3>
-            <p>Confidential, boutique engagement with enterprise‑grade rigor.</p>
-          </div>
-        </div>
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Vanguard</h2>
+        <span class="muted">Based in Georgia, serving nationwide</span>
       </div>
-    </section>
+      <div class="card-grid">
+        <div class="card"><h3>Who We Are</h3><p>Founded by experienced operators and financial advisors, we combine strategic insight with hands-on execution.</p></div>
+        <div class="card"><h3>Our Approach</h3><p>We tailor our process to every client, blending data and experience to drive measurable outcomes.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p class="muted">Request a valuation or speak with a broker.</p>
-        </div>
-        <div class="cta-block">
-          <form name="contact">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Your full name" required>
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@company.com" required>
-            </div>
-            <div>
-              <label for="message">How can we help?</label>
-              <textarea id="message" name="message" rows="5" placeholder="Briefly describe your goals"></textarea>
-            </div>
-            <button class="btn" type="submit">Submit</button>
-          </form>
-        </div>
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <span class="muted">We respond within 24 hours</span>
       </div>
-    </section>
-  </main>
+      <form>
+        <label for="name">Your Name</label>
+        <input id="name" name="name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
   <footer>
     <div class="container footgrid">
-      <div>
-        <strong>Vanguard Business Brokers</strong><br>
-        <span class="muted">Alpharetta, Georgia • Serving the United States</span>
-      </div>
-      <div>
-        <div class="muted">© <span id="year"></span> Vanguard Business Brokers. All rights reserved.</div>
-      </div>
+      <div><strong>Vanguard Business Brokers</strong><br>Alpharetta, GA<br>Serving U.S.-based clients nationwide</div>
+      <div><strong>Contact</strong><br><a href="mailto:info@vanguardbrokers.com">info@vanguardbrokers.com</a><br><a href="#contact">Contact Form</a></div>
+      <div><strong>Links</strong><br><a href="#services">Services</a><br><a href="#about">About</a><br><a href="#contact">Contact</a></div>
     </div>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   </footer>
 </body>
 </html>
